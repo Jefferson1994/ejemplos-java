@@ -5,7 +5,6 @@ package lecturaArchivos;
 // CÓMO PROGRAMAR EN J AVA . Séptima edición
 // fines educativos
 // Prueba de la clase ArchivoTexto.
-
 // Este programa lee un archivo de texto y muestra cada registro.
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,16 +32,29 @@ public class LeerArchivoTexto {
 
     // lee registro del archivo
     public void leer_informacion() {
-
+        int b = 0;
         try // lee registros del archivo, usando el objeto Scanner
         {
             while (entrada.hasNext()) {
                 String linea = entrada.nextLine();
-                // System.out.println(linea);
+
+                int a = 0;
+                
+                
+                System.out.println(linea);
                 ArrayList<String> linea_partes = new ArrayList<String>(Arrays.asList(linea.split(";")));
                 System.out.println(linea_partes);
-
-            } // fin de while
+                for (int i = 0; i < linea_partes.size(); i++) {
+                    a = a + Integer.parseInt(linea_partes.get(i));
+                   
+                }
+                b = a + b;
+                System.out.println("la suma es: " + a);
+                
+                 
+            }
+            System.out.println("la suma total es: " + b);
+            // fin de while
         } // fin de try
         catch (NoSuchElementException elementException) {
             System.err.println("El archivo no esta bien formado.");
@@ -52,7 +64,8 @@ public class LeerArchivoTexto {
         catch (IllegalStateException stateException) {
             System.err.println("Error al leer del archivo.");
             System.exit(1);
-        } // fin de catch
+        }
+        // fin de catch
     } // fin del metodo leerRegistros
     // cierra el archivo y termina la aplicación
 
@@ -61,5 +74,9 @@ public class LeerArchivoTexto {
             entrada.close(); // cierra el archivo
         }
     } // fin del metodo cerrarArchivo
+
+    public void sumar() {
+
+    }
 } // fin de la clase LeerArchivoTexto
 

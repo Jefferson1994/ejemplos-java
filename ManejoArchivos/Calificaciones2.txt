@@ -1,0 +1,4 @@
+Luis;Alvarez;10;15
+jeff;vega;20;20
+alex;acaro;15;16
+juan;vega;20;10
